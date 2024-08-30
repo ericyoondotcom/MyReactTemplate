@@ -1,5 +1,29 @@
 $accent-color: navajowhite;
 
+$SMALL_DESKTOP_WIDTH: 1200px;
+$MOBILE_WIDTH: 1000px;
+
 body {
     background-color: cornflowerblue;
+}
+
+@mixin mobile() {
+    @media ( max-width: $MOBILE_WIDTH ) {
+        @content;
+    }
+}
+@mixin small_desktop() {
+    @media ( max-width: $SMALL_DESKTOP_WIDTH ) {
+        @content;
+    }
+}
+
+@mixin rails() {
+    padding: 50px 30vw;
+    @include mobile(){
+        padding: 50px 2vw;
+    }
+    @include small_desktop(){
+        padding: 50px 15vw;
+    }
 }
